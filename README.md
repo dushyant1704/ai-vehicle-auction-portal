@@ -426,6 +426,17 @@ npm run dev
 
 ---
 
+## 🤝 Contributors
+
+- **Kranvagn4**
+  - GitHub: [@Kranvagn4](https://github.com/Kranvagn4)
+  - Profile: [https://github.com/Kranvagn4](https://github.com/Kranvagn4)
+- **Abhyudaya1612**
+  - GitHub: [@Abhyudaya1612](https://github.com/Abhyudaya1612)
+  - Profile: [https://github.com/Abhyudaya1612](https://github.com/Abhyudaya1612)
+
+---
+
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE) - feel free to use, modify, and distribute for personal and commercial projects.
