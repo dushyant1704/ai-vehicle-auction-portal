@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: auction_mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    restart: always
+
+  backend:
+    build: ./ai auction portal backend
+    container_name: auction_backend
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - MONGO_URI=mongodb://mongodb:27017/ai_auction_db
+      - JWT_SECRET=auction_jwt_secret_key_2024_secure
+      - DAMAGE_SERVICE_URL=http://damage-service:5002
+      - ML_SERVICE_URL=http://ml-service:5001
+    depends_on:
+      - mongodb
+    restart: always
+
+  frontend:
+    build: ./ai-auction-frontend
+    container_name: auction_frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+    restart: always
+
+volumes:
+  mongo_data:

@@ -1,0 +1,242 @@
+{
+  "summary": {
+    "total_images": 10,
+    "images_with_damage": 7,
+    "total_damages": 12,
+    "avg_damages_per_vehicle": 1.2,
+    "damage_counts": {
+      "dent": 3,
+      "scratch": 5,
+      "crack": 0,
+      "glass shatter": 1,
+      "lamp broken": 0,
+      "tire flat": 3
+    },
+    "severity_distribution": {
+      "none": 3,
+      "minor": 3,
+      "moderate": 4
+    }
+  },
+  "detections": [
+    {
+      "image": "001587.jpg",
+      "detections": [],
+      "severity": "none",
+      "severity_score": 0,
+      "total_damages": 0,
+      "annotated_image": "test_results\\001587.jpg"
+    },
+    {
+      "image": "000778.jpg",
+      "detections": [
+        {
+          "class_id": 5,
+          "class_name": "tire flat",
+          "confidence": 93.33,
+          "bbox": [
+            129.53,
+            30.31,
+            667.0,
+            947.01
+          ]
+        }
+      ],
+      "severity": "minor",
+      "severity_score": 1.87,
+      "total_damages": 1,
+      "annotated_image": "test_results\\000778.jpg"
+    },
+    {
+      "image": "001885.jpg",
+      "detections": [
+        {
+          "class_id": 5,
+          "class_name": "tire flat",
+          "confidence": 95.79,
+          "bbox": [
+            136.34,
+            168.53,
+            613.64,
+            646.83
+          ]
+        },
+        {
+          "class_id": 1,
+          "class_name": "scratch",
+          "confidence": 64.68,
+          "bbox": [
+            609.42,
+            190.6,
+            720.2,
+            333.53
+          ]
+        }
+      ],
+      "severity": "moderate",
+      "severity_score": 2.56,
+      "total_damages": 2,
+      "annotated_image": "test_results\\001885.jpg"
+    },
+    {
+      "image": "001582.jpg",
+      "detections": [],
+      "severity": "none",
+      "severity_score": 0,
+      "total_damages": 0,
+      "annotated_image": "test_results\\001582.jpg"
+    },
+    {
+      "image": "000687.jpg",
+      "detections": [],
+      "severity": "none",
+      "severity_score": 0,
+      "total_damages": 0,
+      "annotated_image": "test_results\\000687.jpg"
+    },
+    {
+      "image": "003925.jpg",
+      "detections": [
+        {
+          "class_id": 0,
+          "class_name": "dent",
+          "confidence": 86.99,
+          "bbox": [
+            373.69,
+            332.34,
+            734.94,
+            597.63
+          ]
+        },
+        {
+          "class_id": 1,
+          "class_name": "scratch",
+          "confidence": 75.95,
+          "bbox": [
+            668.43,
+            432.11,
+            822.53,
+            597.86
+          ]
+        },
+        {
+          "class_id": 1,
+          "class_name": "scratch",
+          "confidence": 66.89,
+          "bbox": [
+            795.28,
+            385.3,
+            887.01,
+            529.43
+          ]
+        }
+      ],
+      "severity": "moderate",
+      "severity_score": 3.17,
+      "total_damages": 3,
+      "annotated_image": "test_results\\003925.jpg"
+    },
+    {
+      "image": "002307.jpg",
+      "detections": [
+        {
+          "class_id": 3,
+          "class_name": "glass shatter",
+          "confidence": 95.19,
+          "bbox": [
+            0.0,
+            133.26,
+            904.53,
+            665.79
+          ]
+        }
+      ],
+      "severity": "moderate",
+      "severity_score": 3.81,
+      "total_damages": 1,
+      "annotated_image": "test_results\\002307.jpg"
+    },
+    {
+      "image": "001517.jpg",
+      "detections": [
+        {
+          "class_id": 0,
+          "class_name": "dent",
+          "confidence": 68.28,
+          "bbox": [
+            415.69,
+            205.88,
+            605.95,
+            408.5
+          ]
+        }
+      ],
+      "severity": "minor",
+      "severity_score": 1.37,
+      "total_damages": 1,
+      "annotated_image": "test_results\\001517.jpg"
+    },
+    {
+      "image": "003296.jpg",
+      "detections": [
+        {
+          "class_id": 5,
+          "class_name": "tire flat",
+          "confidence": 96.18,
+          "bbox": [
+            316.85,
+            202.96,
+            634.01,
+            483.55
+          ]
+        }
+      ],
+      "severity": "minor",
+      "severity_score": 1.92,
+      "total_damages": 1,
+      "annotated_image": "test_results\\003296.jpg"
+    },
+    {
+      "image": "003246.jpg",
+      "detections": [
+        {
+          "class_id": 1,
+          "class_name": "scratch",
+          "confidence": 92.9,
+          "bbox": [
+            0.75,
+            231.88,
+            444.64,
+            626.2
+          ]
+        },
+        {
+          "class_id": 0,
+          "class_name": "dent",
+          "confidence": 88.7,
+          "bbox": [
+            669.89,
+            289.97,
+            897.18,
+            398.54
+          ]
+        },
+        {
+          "class_id": 1,
+          "class_name": "scratch",
+          "confidence": 86.67,
+          "bbox": [
+            842.54,
+            340.91,
+            999.3,
+            545.16
+          ]
+        }
+      ],
+      "severity": "moderate",
+      "severity_score": 3.57,
+      "total_damages": 3,
+      "annotated_image": "test_results\\003246.jpg"
+    }
+  ]
+}

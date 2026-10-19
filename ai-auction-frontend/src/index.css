@@ -1,0 +1,553 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS Variables (set dynamically by ThemeContext) ── */
+:root {
+  --bg-primary:    #020617;
+  --bg-secondary:  #0f172a;
+  --bg-card:       #1e293b;
+  --bg-card-hover: #253347;
+  --border-color:  #1e293b;
+  --text-primary:  #f8fafc;
+  --text-secondary:#94a3b8;
+  --text-muted:    #475569;
+  --sidebar-bg:    #0f172a;
+  --header-bg:     rgba(15, 23, 42, 0.85);
+
+  /* Extra semantic variables used in light fixes */
+  --input-bg:       #1e293b;
+  --input-border:   #334155;
+  --tag-bg:         rgba(30,41,59,0.6);
+  --skeleton-bg:    #1e293b;
+  --overlay-bg:     rgba(2,6,23,0.8);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   LIGHT MODE — full override of every hardcoded dark class
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+html.light {
+  --bg-primary:    #f1f5f9;
+  --bg-secondary:  #e2e8f0;
+  --bg-card:       #ffffff;
+  --bg-card-hover: #f8fafc;
+  --border-color:  #cbd5e1;
+  --text-primary:  #0f172a;
+  --text-secondary:#475569;
+  --text-muted:    #94a3b8;
+  --sidebar-bg:    #ffffff;
+  --header-bg:     rgba(255,255,255,0.92);
+  --input-bg:      #ffffff;
+  --input-border:  #cbd5e1;
+  --tag-bg:        rgba(241,245,249,0.9);
+  --skeleton-bg:   #e2e8f0;
+  --overlay-bg:    rgba(255,255,255,0.85);
+}
+
+/* ── Page / container backgrounds ── */
+html.light .bg-slate-950  { background-color: #e2e8f0 !important; }
+html.light .bg-slate-900  { background-color: #f1f5f9 !important; }
+html.light .bg-slate-800  { background-color: #ffffff !important; }
+html.light .bg-slate-800\/30,
+html.light .bg-slate-800\/40,
+html.light .bg-slate-800\/50,
+html.light .bg-slate-800\/60,
+html.light .bg-slate-800\/70,
+html.light .bg-slate-800\/80 { background-color: rgba(255,255,255,0.9) !important; }
+html.light .bg-slate-900\/50,
+html.light .bg-slate-900\/60,
+html.light .bg-slate-900\/70,
+html.light .bg-slate-900\/80,
+html.light .bg-slate-900\/90 { background-color: rgba(241,245,249,0.95) !important; }
+html.light .bg-slate-700  { background-color: #e2e8f0 !important; }
+html.light .bg-slate-700\/40,
+html.light .bg-slate-700\/50,
+html.light .bg-slate-700\/60 { background-color: rgba(226,232,240,0.7) !important; }
+
+/* Navbar — keep glass look in light */
+html.light nav[class*="sticky"] {
+  background: linear-gradient(180deg, rgba(248,250,252,0.97) 0%, rgba(241,245,249,0.95) 100%) !important;
+  border-color: rgba(99,102,241,0.12) !important;
+  box-shadow: 0 1px 0 rgba(99,102,241,0.08), 0 4px 24px rgba(0,0,0,0.06) !important;
+}
+
+/* ── Text colors ── */
+html.light .text-white       { color: #0f172a !important; }
+html.light .text-slate-100   { color: #1e293b !important; }
+html.light .text-slate-200   { color: #334155 !important; }
+html.light .text-slate-300   { color: #475569 !important; }
+html.light .text-slate-400   { color: #64748b !important; }
+html.light .text-slate-500   { color: #94a3b8 !important; }
+html.light .text-slate-600   { color: #cbd5e1 !important; }
+html.light .text-gray-300    { color: #475569 !important; }
+html.light .text-gray-400    { color: #64748b !important; }
+html.light .text-gray-500    { color: #94a3b8 !important; }
+html.light .text-gray-600    { color: #cbd5e1 !important; }
+/* Keep accent & status colors unchanged */
+html.light .text-indigo-400  { color: #6366f1 !important; }
+html.light .text-indigo-300  { color: #818cf8 !important; }
+html.light .text-purple-400  { color: #a855f7 !important; }
+html.light .text-emerald-400 { color: #10b981 !important; }
+html.light .text-red-400     { color: #ef4444 !important; }
+html.light .text-rose-400    { color: #f43f5e !important; }
+
+/* ── Border colors ── */
+html.light .border-slate-800,
+html.light .border-slate-800\/50 { border-color: #e2e8f0 !important; }
+html.light .border-slate-700,
+html.light .border-slate-700\/50,
+html.light .border-slate-700\/30,
+html.light .border-slate-700\/40,
+html.light .border-slate-700\/60,
+html.light .border-slate-700\/80 { border-color: #cbd5e1 !important; }
+html.light .border-slate-600     { border-color: #94a3b8 !important; }
+html.light .border-white\/5,
+html.light .border-white\/10     { border-color: rgba(0,0,0,0.06) !important; }
+
+/* ── Form inputs ── */
+html.light input[class*="bg-slate"],
+html.light select[class*="bg-slate"],
+html.light textarea[class*="bg-slate"] {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+html.light input::placeholder,
+html.light textarea::placeholder { color: #94a3b8 !important; }
+html.light select option          { background-color: #ffffff; color: #0f172a; }
+
+/* ── Cards — VehicleCard ── */
+html.light .bg-slate-800\/80 {
+  background-color: rgba(255,255,255,0.95) !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* Stat tag chips inside vehicle card */
+html.light .bg-slate-700\/40 {
+  background-color: rgba(226,232,240,0.6) !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* ── VehicleCard image price badge ── */
+html.light .bg-slate-900\/90 {
+  background-color: rgba(15,23,42,0.85) !important; /* keep dark for contrast on image */
+}
+
+/* ── Filters component ── */
+html.light .bg-slate-800\/30 {
+  background-color: rgba(255,255,255,0.85) !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* ── MyBids — empty state ── */
+html.light .bg-slate-800\/40 { background-color: rgba(255,255,255,0.8) !important; }
+html.light .border-slate-700\/50 { border-color: #e2e8f0 !important; }
+
+/* MyBids bid row external link button */
+html.light .bg-slate-700\/50 { background-color: rgba(226,232,240,0.6) !important; }
+
+/* timestamp chip */
+html.light .bg-slate-900\/50 { background-color: rgba(241,245,249,0.9) !important; }
+html.light .border-slate-800 { border-color: #e2e8f0 !important; }
+
+/* ── Profile page ── */
+html.light .bg-slate-800\/60 { background-color: rgba(255,255,255,0.92) !important; }
+html.light .border-slate-700\/50 { border-color: #e2e8f0 !important; }
+
+/* Profile avatar inner bg */
+html.light .bg-slate-800 { background-color: #f1f5f9 !important; }
+
+/* Settings button */
+html.light .bg-slate-700          { background-color: #e2e8f0 !important; }
+html.light .hover\:bg-slate-600:hover { background-color: #cbd5e1 !important; }
+html.light .border-slate-600      { border-color: #94a3b8 !important; }
+
+/* ── Login / Signup pages ── */
+html.light .min-h-screen.bg-slate-900 {
+  background-color: #f1f5f9 !important;
+}
+/* Card */
+html.light .bg-slate-800\/60.backdrop-blur-xl {
+  background-color: rgba(255,255,255,0.95) !important;
+}
+/* Divider */
+html.light .bg-slate-700.flex-1.h-px { background-color: #e2e8f0 !important; }
+
+/* ── VehicleDetails page ── */
+html.light .bg-slate-900.border-slate-800 {
+  background-color: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+}
+html.light .bg-slate-800\/50.p-4.rounded-2xl { background-color: rgba(241,245,249,0.9) !important; }
+
+/* Valuation breakdown rows */
+html.light .bg-slate-800\/40 { background-color: rgba(241,245,249,0.85) !important; }
+html.light .bg-slate-800\/40.p-3 { background-color: rgba(241,245,249,0.85) !important; }
+
+/* "How it works" disclaimer row */
+html.light .bg-slate-900\/50.rounded-lg { background-color: rgba(226,232,240,0.7) !important; }
+
+/* Error / missing vehicle card */
+html.light .bg-slate-800\/40.rounded-3xl { background-color: rgba(255,255,255,0.9) !important; }
+html.light .px-6.py-3.bg-slate-700 { background-color: #e2e8f0 !important; }
+
+/* ── Auctions page ── */
+/* Load More button */
+html.light .bg-slate-800.hover\:bg-slate-700 {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+html.light .bg-slate-800.hover\:bg-slate-700:hover { background-color: #f1f5f9 !important; }
+
+/* ── Skeleton loader ── */
+html.light .bg-slate-800\/50.animate-pulse { background-color: rgba(226,232,240,0.8) !important; }
+html.light .animate-pulse .bg-slate-700    { background-color: #cbd5e1 !important; }
+
+/* ── Home — Feature section ── */
+html.light section.py-24.bg-slate-900 {
+  background-color: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+}
+html.light .bg-slate-800\/50.backdrop-blur-sm.border.border-slate-700.p-8 {
+  background-color: rgba(255,255,255,0.9) !important;
+  border-color: #e2e8f0 !important;
+}
+html.light .bg-slate-800\/50.backdrop-blur-sm.border.border-slate-700.p-8:hover {
+  background-color: #ffffff !important;
+}
+
+/* ── Profile — not-logged-in state ── */
+html.light .w-20.h-20.bg-slate-800 {
+  background-color: #e2e8f0 !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* ── ThemeSwitcher dropdown ── */
+html.light .rounded-2xl.border.shadow-2xl.overflow-hidden {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* ── Hover states ── */
+html.light .hover\:bg-slate-800:hover { background-color: #f1f5f9 !important; }
+html.light .hover\:bg-slate-700:hover { background-color: #e2e8f0 !important; }
+
+/* ── Scrollbar — light theme ── */
+html.light *::-webkit-scrollbar-track  { background: #f1f5f9; }
+html.light *::-webkit-scrollbar-thumb  { background: #cbd5e1; border-radius: 9999px; }
+html.light *::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* ── Base layer ── */
+@layer base {
+  * {
+    transition: background-color 0.25s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+
+  html, body, #root {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* ── Utilities ── */
+@layer utilities {
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .glassmorphism {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .glassmorphism-light {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  /* Themed card utility */
+  .theme-card {
+    background-color: var(--bg-card);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+  }
+
+  .theme-surface   { background-color: var(--bg-secondary); }
+  .theme-sidebar   { background-color: var(--sidebar-bg); }
+  .theme-header    { background-color: var(--header-bg); }
+  .theme-text      { color: var(--text-primary); }
+  .theme-text-secondary { color: var(--text-secondary); }
+  .theme-text-muted     { color: var(--text-muted); }
+  .theme-border    { border-color: var(--border-color); }
+}
+
+/* ── Scrollbar (dark default) ── */
+*::-webkit-scrollbar { width: 6px; height: 6px; }
+*::-webkit-scrollbar-track { background: #1e293b; }
+*::-webkit-scrollbar-thumb { background: #475569; border-radius: 9999px; }
+*::-webkit-scrollbar-thumb:hover { background: #64748b; }
+
+/* ── BidModal ── */
+html.light .fixed.inset-0.bg-black.bg-opacity-50 { background-color: rgba(0,0,0,0.35) !important; }
+html.light .bg-slate-800.p-6.rounded-xl          { background-color: #ffffff !important; color: #0f172a !important; }
+html.light .bg-slate-800.p-6.rounded-xl h2       { color: #0f172a !important; }
+html.light .rounded.bg-slate-700                  { background-color: #e2e8f0 !important; color: #0f172a !important; border: 1px solid #cbd5e1; }
+html.light .rounded.bg-gray-600                   { background-color: #cbd5e1 !important; color: #334155 !important; }
+
+/* ── AddVehicle — form inputs (iCls uses bg-slate-900) ── */
+html.light .bg-slate-900.border.border-slate-700.rounded-xl,
+html.light .bg-slate-900.border.border-emerald-500\/30 {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+/* disabled model select */
+html.light .bg-slate-800.cursor-not-allowed { background-color: #f1f5f9 !important; }
+
+/* AddVehicle condition buttons (unselected = bg-slate-900) */
+html.light button.bg-slate-900.border-slate-700 {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #475569 !important;
+}
+
+/* AddVehicle left panel card */
+html.light .bg-slate-800\/50.backdrop-blur-md.rounded-3xl {
+  background-color: rgba(255,255,255,0.92) !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* AddVehicle right panel — awaiting state */
+html.light .bg-slate-800\/30.border.border-slate-700\/30 {
+  background-color: rgba(241,245,249,0.7) !important;
+  border-color: #e2e8f0 !important;
+}
+html.light .bg-slate-800\/60.border.border-slate-700\/60 {
+  background-color: rgba(255,255,255,0.85) !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* AddVehicle — results panel */
+html.light .bg-slate-800\/80.backdrop-blur-xl.border.border-indigo-500\/30 {
+  background-color: rgba(255,255,255,0.95) !important;
+}
+
+/* spectrum bar background */
+html.light .bg-slate-900.rounded-full.overflow-hidden {
+  background-color: #e2e8f0 !important;
+}
+
+/* Badge chips in results */
+html.light .border-slate-600.bg-slate-800.text-slate-300 {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #475569 !important;
+}
+html.light .border-slate-700.bg-slate-900.text-slate-500 {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+  color: #94a3b8 !important;
+}
+
+/* MetricCard inner bg */
+html.light [class*="bg-slate-800/40"][class*="rounded-2xl"],
+html.light .bg-slate-800\/40.rounded-2xl {
+  background-color: rgba(241,245,249,0.85) !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* SaveButton hover */
+html.light .bg-slate-700\/80.hover\:bg-emerald-500\/20 {
+  background-color: #e2e8f0 !important;
+  color: #475569 !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* deal-badge utility */
+html.light .deal-badge.border-slate-600.bg-slate-800.text-slate-300 {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #475569 !important;
+}
+
+/* Spectrum bar label */
+html.light .text-slate-700 { color: #94a3b8 !important; }
+
+/* ── Theme transition overlay ── */
+.theme-transition-active * {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease !important;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   DASHBOARD — Animations & Premium UI
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── Keyframes ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(100%); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-100%); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -600px 0; }
+  100% { background-position: 600px 0; }
+}
+
+@keyframes pulseRing {
+  0%   { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4); }
+  70%  { box-shadow: 0 0 0 10px rgba(99, 102, 241, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ── Dashboard slide-in animations ── */
+.dash-slide-in-right {
+  animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.dash-slide-in-left {
+  animation: slideInLeft 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.dash-mobile-overlay {
+  animation: fadeInUp 0.2s ease both;
+}
+
+/* ── Staggered card entrance ── */
+.dash-fade-in-up {
+  animation: fadeInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.dash-stat-card {
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ── Profile hero gradient ── */
+.dash-profile-hero {
+  background: linear-gradient(135deg,
+    rgba(99, 102, 241, 0.18) 0%,
+    rgba(139, 92, 246, 0.12) 40%,
+    rgba(15, 23, 42, 0.85) 100%);
+}
+html.light .dash-profile-hero {
+  background: linear-gradient(135deg,
+    rgba(99, 102, 241, 0.12) 0%,
+    rgba(139, 92, 246, 0.08) 40%,
+    rgba(248, 250, 252, 0.9) 100%);
+}
+
+/* ── Avatar ring pulse ── */
+.dash-avatar-ring {
+  animation: pulseRing 2.5s ease-in-out infinite;
+}
+
+/* ── Skeleton shimmer (uses .dash-skeleton class, does NOT override Tailwind's .animate-pulse) ── */
+.dash-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-bg, #1e293b) 25%,
+    rgba(100, 116, 139, 0.15) 50%,
+    var(--skeleton-bg, #1e293b) 75%
+  );
+  background-size: 600px 100%;
+  animation: shimmer 1.8s infinite linear;
+  border-radius: 0.75rem;
+}
+html.light .dash-skeleton {
+  background: linear-gradient(
+    90deg,
+    #e2e8f0 25%,
+    rgba(148, 163, 184, 0.3) 50%,
+    #e2e8f0 75%
+  );
+  background-size: 600px 100%;
+  animation: shimmer 1.8s infinite linear;
+}
+
+/* ── Slow pulse (for ambient orbs) ── */
+.animate-pulse-slow {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ── Notification unread highlight ── */
+.notif-unread {
+  background-color: rgba(99, 102, 241, 0.05);
+}
+html.light .notif-unread {
+  background-color: rgba(99, 102, 241, 0.06);
+}
+
+/* ── Nav item hover microanimation ── */
+.dash-nav-item {
+  position: relative;
+  overflow: hidden;
+}
+.dash-nav-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(99,102,241,0.05) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.dash-nav-item:hover::after {
+  opacity: 1;
+}
+
+/* ── Light mode dashboard overrides ── */
+html.light .dash-profile-hero .text-white { color: #0f172a !important; }
+
+/* Notification panel in light mode */
+html.light .dash-slide-in-right {
+  box-shadow: -8px 0 40px rgba(0,0,0,0.12) !important;
+}
+
+/* Stat card in light mode */
+html.light .dash-stat-card .bg-slate-800\/60 {
+  background-color: rgba(241,245,249,0.8) !important;
+}
+
+/* Analytics card backgrounds in light mode — scoped to analytics cards only */
+html.light [class*='from-indigo-500\/10'][class*='to-blue-500\/5'] {
+  --tw-gradient-from: rgba(99,102,241,0.06) !important;
+  --tw-gradient-to: rgba(59,130,246,0.03) !important;
+}
+html.light [class*='from-yellow-500\/10'][class*='to-amber-500\/5'] {
+  --tw-gradient-from: rgba(234,179,8,0.06) !important;
+  --tw-gradient-to: rgba(245,158,11,0.03) !important;
+}
+html.light [class*='from-purple-500\/10'][class*='to-pink-500\/5'] {
+  --tw-gradient-from: rgba(168,85,247,0.06) !important;
+  --tw-gradient-to: rgba(236,72,153,0.03) !important;
+}
+
+/* ── Scrollbar (dashboard custom) ── */
+main::-webkit-scrollbar { width: 5px; }
+main::-webkit-scrollbar-track { background: transparent; }
+main::-webkit-scrollbar-thumb { background: rgba(100, 116, 139, 0.35); border-radius: 9999px; }
+main::-webkit-scrollbar-thumb:hover { background: rgba(100, 116, 139, 0.6); }
+

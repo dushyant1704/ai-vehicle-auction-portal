@@ -1,0 +1,41 @@
+{
+  "metric_verification": {
+    "test_r2": 0.9486660957336426,
+    "test_mae": 97136.1640625,
+    "test_rmse": 196578.82075137188,
+    "test_mape": 13.880690932273865,
+    "verified_from_test_set": true
+  },
+  "strategy_performance": {
+    "A (70/30)": {
+      "in_range": 1,
+      "avg_deviation": 39.31099790172254,
+      "max_deviation": 55.26430434782609
+    },
+    "B (50/50)": {
+      "in_range": 1,
+      "avg_deviation": 34.110371004733324,
+      "max_deviation": 42.41065217391304
+    },
+    "C (40/60)": {
+      "in_range": 2,
+      "avg_deviation": 31.510057556238717,
+      "max_deviation": 42.114939130434784
+    },
+    "D (20/80)": {
+      "in_range": 2,
+      "avg_deviation": 26.309430659249497,
+      "max_deviation": 42.73912727272726
+    },
+    "ML Only": {
+      "in_range": 3,
+      "avg_deviation": 24.404455936173324,
+      "max_deviation": 44.03036363636363
+    }
+  },
+  "recommendation": {
+    "best_strategy": "ML Only",
+    "improvement": 2,
+    "justified": true
+  }
+}

@@ -1,0 +1,65 @@
+# Environment and Secret Files
+.env
+.env.local
+.env.*.local
+*.env
+!.env.example
+!*.env.example
+
+# Node.js Dependencies & Logs
+node_modules/
+*/node_modules/
+*/*/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Frontend Build Outputs
+dist/
+dist-ssr/
+build/
+*.local
+
+# Python Environments & Cache
+venv/
+venv*/
+*/venv/
+*/venv*/
+*/*/venv/
+*/*/venv*/
+env/
+*/env/
+ENV/
+__pycache__/
+*/__pycache__/
+*/*/__pycache__/
+*/*/*/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# YOLO Dataset Raw Images & Training Runs (Datasets should be downloaded separately)
+damage-detection/train/
+damage-detection/val/
+damage-detection/test/
+damage-detection/runs/
+runs/
+*/runs/
+temp/
+*/temp/
+*/*/temp/
+*.log
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.bolt/
