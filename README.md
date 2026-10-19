@@ -40,7 +40,7 @@ The **AI Vehicle Auction Portal** revolutionizes automotive remarketing and seco
 The platform is designed around a decoupled, microservices-driven architecture ensuring scalability, fault isolation, and independent deployability across AI and web tiers.
 
 ```mermaid
-graph TB
+flowchart TB
     subgraph Client["Frontend Client (Port 5173)"]
         UI["React 18 + TypeScript + Vite SPA"]
         Tailwind["Tailwind CSS + Glassmorphism UI"]
@@ -58,24 +58,24 @@ graph TB
     end
 
     subgraph AIServices["AI & Computer Vision Microservices"]
-        MLService["XGBoost ML Price Service\n(Python/Flask - Port 5001)\n• R²=0.9487 Valuation Model\n• Pre-trained Encoders"]
-        DamageService["YOLOv8 Damage Detection Service\n(Python/Flask - Port 5002)\n• 6-Class Damage Detector\n• EXIF Anti-Tampering Gate\n• Image Quality Validator"]
+        MLService["XGBoost ML Price Service<br/>(Python/Flask - Port 5001)<br/>R2=0.9487 Valuation Model<br/>Pre-trained Encoders"]
+        DamageService["YOLOv8 Damage Detection Service<br/>(Python/Flask - Port 5002)<br/>6-Class Damage Detector<br/>EXIF Anti-Tampering Gate<br/>Image Quality Validator"]
     end
 
     subgraph DataStorage["Data & Cloud Infrastructure"]
-        MongoDB[("MongoDB Atlas / Local DB\n• Users, Roles, Auctions\n• Vehicles, Bids, Telemetry")]
-        Cloudinary[("Cloudinary Media CDN\n• High-Res Vehicle Photos\n• Annotated Bounding Box Overlays")]
-        GroqAPI["Groq Cloud LLM API\n(LLaMA / GPT Inference)"]
+        MongoDB[("MongoDB Atlas / Local DB<br/>Users, Roles, Auctions<br/>Vehicles, Bids, Telemetry")]
+        Cloudinary[("Cloudinary Media CDN<br/>High-Res Vehicle Photos<br/>Annotated Bounding Box Overlays")]
+        GroqAPI["Groq Cloud LLM API<br/>(LLaMA / GPT Inference)"]
     end
 
     %% Client to Backend
     UI -->|REST API / HTTPS| Server
-    SocketClient <-->|WebSockets (ws://)| SocketServer
+    SocketClient <-->|"WebSockets (ws)"| SocketServer
     ChatWidget -->|Prompt Queries| RAGModule
 
     %% Backend to AI Microservices
-    VehicleController -->|POST /predict\nFeature Vectors| MLService
-    VehicleController -->|POST /detect\nInspection Photos| DamageService
+    VehicleController -->|POST /predict| MLService
+    VehicleController -->|POST /detect| DamageService
 
     %% Backend to Storage & External
     Server -->|Mongoose ODM| MongoDB
@@ -111,7 +111,7 @@ sequenceDiagram
     Damage-->>Backend: Damage Score, Bounding Boxes & Severity Metrics
     
     Backend->>ML: POST /predict (Specs + Mileage + Year)
-    ML-->>Backend: Base Market Valuation (R²=0.9487)
+    ML-->>Backend: Base Market Valuation (R2=0.9487)
     
     rect rgb(255, 250, 240)
         Note over Backend: Compute Dynamic Hybrid Price Formula:<br/>Price = 0.80 * ML_Price * (1 - Damage_Factor) + 0.20 * Market_Anchor
@@ -125,10 +125,10 @@ sequenceDiagram
     Backend->>DB: Set Auction Status: ACTIVE
     
     Buyer->>Client: Join Live Auction Room
-    Buyer->>Client: Place Bid ($)
-    Client->>Backend: Socket.IO: "place_bid"
+    Buyer->>Client: Place Bid (Amount)
+    Client->>Backend: Socket.IO: place_bid
     Backend->>DB: Verify Bid > CurrentPrice + MinIncrement
-    Backend-->>Client: Socket.IO Broadcast: "bid_updated" (All Connected Buyers)
+    Backend-->>Client: Socket.IO Broadcast: bid_updated (All Connected Buyers)
 ```
 
 ---
